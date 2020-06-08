@@ -1,0 +1,5 @@
+.cache
+build-main
+build-renderer
+dist
+node_modules

@@ -1,0 +1,38 @@
+{
+  "name": "test",
+  "version": "0.1.0",
+  "description": "New Electron+React+TS project",
+  "repository": {},
+  "author": "me",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "electron": "^9.0.3",
+    "electron-builder": "^22.7.0",
+    "electron-reload": "^1.5.0",
+    "parcel-bundler": "^1.12.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.2.0"
+  },
+  "scripts": {
+    "dev:main": "tsc && electron ./build-main/main/index.js",
+    "dev:renderer": "parcel ./src/renderer/index.html --out-dir ./build-renderer",
+    "dist:mac": "rm -rf ./dist && tsc && parcel build ./src/renderer/index.html --out-dir ./dist-renderer --public-url . && electron-builder && rm -rf dist-renderer",
+    "watch": "tsc -w --preserveWatchOutput"
+  },
+  "main": "./build-main/main/index.js",
+  "build": {
+    "appId": "com.test",
+    "files": [
+      "build-main/**/*",
+      "dist-renderer/*"
+    ]
+  }
+}
